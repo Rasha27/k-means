@@ -154,15 +154,19 @@ class KMeans:
     clusterCount = 0
     for centroid in set(assignments):
       tweetIds = []
+      rawTweets = []
       clusterCount += 1
       for index, tweet in enumerate(self.data):
         if assignments[index] == centroid:
           # print(tweet['text'])
           tweetIds.append(tweet['id'])
+          rawTweets.append(tweet['text'])
 
       f.write(str(clusterCount) + ' ' + ','.join(str(x) for x in tweetIds) + '\n')
-
-      # print('\n\n\n')
+      print('Cluster No: ', clusterCount)
+      print('-'.join('' for i in range(50)))
+      print('\n'.join(x for x in rawTweets))
+      print('\n\n\n')
 
     f.close()
     self.centroids = centroids
