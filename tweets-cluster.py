@@ -70,7 +70,7 @@ class KMeans:
 
   # Computes jaccard distance for two given word sets
   def jaccardDistance(self, x, y):
-    # jDistance = 1 - (x ∪ y)/(x ∩ y)
+    # jDistance = 1 - (x ∩ y)/(x ∪ y)
     intersection = len(x.intersection(y))
     union = len(x.union(y))
     jDistance = 1 - (float(intersection) / union)
